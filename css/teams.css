@@ -1,0 +1,12 @@
+.teamTileCollection {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.teamTileContainer {
+  margin: auto;
+  height: 200px;
+  width: 200px;
+}
