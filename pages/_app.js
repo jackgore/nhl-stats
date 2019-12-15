@@ -1,20 +1,20 @@
-import App from 'next/app'
-import Link from 'next/link'
-import React from 'react'
+import App from "next/app";
+import Link from "next/link";
+import React from "react";
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
     return (
       <>
         <header>
@@ -37,6 +37,6 @@ export default class MyApp extends App {
 
         <footer>I`m here to stay</footer>
       </>
-    )
+    );
   }
 }

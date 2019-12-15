@@ -3,20 +3,20 @@
 export type Conference = {|
   id: number,
   name: string,
-  link: string,
+  link: string
 |};
 
 export type Division = {|
   id: number,
   name: string,
   nameShort: string,
-  link: string,
+  link: string
 |};
 
 export type Franchise = {|
   franchiseId: number,
   teamName: string,
-  link: string,
+  link: string
 |};
 
 export type Team = {|
@@ -34,11 +34,11 @@ export type Team = {|
   officialSiteUrl: string,
   shortName: string,
   teamName: string,
-  venue: Venue,
-|}
+  venue: Venue
+|};
 
 export type Venue = {|
   name: string,
   link: string,
-  city: string,
+  city: string
 |};
