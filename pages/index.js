@@ -22,19 +22,14 @@ function Index(): Node {
     initialSetup();
   });
 
-  console.log(teams);
   const divisionToTeamsMap = Teams.buildDivisionToTeamsMap(teams);
-  return (
-    <Page>
-      {Object.keys(divisionToTeamsMap).map(divisionName => (
-        <div className="teamTileCollection">
-          {divisionToTeamsMap[divisionName].map(team => (
-            <TeamTile key={team.name} team={team} />
-          ))}
-        </div>
+  return Object.keys(divisionToTeamsMap).map(divisionName => (
+    <div className="teamTileCollection">
+      {divisionToTeamsMap[divisionName].map(team => (
+        <TeamTile key={team.name} team={team} />
       ))}
-    </Page>
-  );
+    </div>
+  ));
 }
 
 export default Index;
