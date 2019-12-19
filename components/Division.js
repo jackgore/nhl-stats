@@ -3,7 +3,7 @@ import type { Team } from "../types/CommonTypes";
 
 import React, { type Node, type Element } from "react";
 import SDText from "../components/common/SDText";
-import TeamTile from "../components/TeamTile";
+import TeamTile from "../components/teams/TeamTile";
 
 import "../css/division.css";
 

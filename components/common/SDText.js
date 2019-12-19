@@ -17,6 +17,9 @@ const FONT_SIZES = {
   header1: 32,
   header2: 24,
   header3: 18,
+  body1: 16,
+  body2: 14,
+  body3: 12,
 };
 
 function SDText(props: Props): Node {
@@ -29,7 +32,7 @@ function SDText(props: Props): Node {
   };
 
   return (
-    <div className="sdText" style={style}>
+    <div className="sd-text" style={style}>
       {children}
     </div>
   );
