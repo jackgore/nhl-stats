@@ -9,7 +9,7 @@ type FontSize = $Keys<typeof FONT_SIZES>;
 type Props = {|
   children: string,
   size?: FontSize,
-  weight?: "bold",
+  weight?: "bold"
 |};
 
 // Maps provided FontSize to a size in pixels (e.g px).

@@ -1,10 +1,8 @@
 // @flow
 import type { Team } from "../types/CommonTypes";
 
-import React, { type Node } from "react";
-import Head from "next/head";
+import React, { type Node, type Element } from "react";
 import SDText from "../components/common/SDText";
-import Teams from "../lib/Teams";
 import TeamTile from "../components/TeamTile";
 
 import "../css/division.css";
@@ -23,7 +21,7 @@ function Division(props: Props): Node {
         {name}
       </SDText>
       <div className="divisionTeamCollection">
-        {teams.map(team => (
+        {teams.map((team: Team): Element<typeof TeamTile> => (
           <TeamTile key={team.name} team={team} />
         ))}
       </div>

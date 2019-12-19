@@ -1,10 +1,8 @@
 // @flow
 import type { Team } from "../types/CommonTypes";
 
-import React, { useEffect, useState, type Node } from "react";
-import Page from "../components/Page";
+import React, { useEffect, useState, type Node, type Element } from "react";
 import Teams from "../lib/Teams";
-import TeamTile from "../components/TeamTile";
 import Division from "../components/Division";
 
 import "../css/teams.css";
@@ -23,7 +21,9 @@ function Index(): Node {
   });
 
   const divisionToTeamsMap = Teams.buildDivisionToTeamsMap(teams);
-  return Object.keys(divisionToTeamsMap).map(divisionName => (
+  return Object.keys(divisionToTeamsMap).map((divisionName: string): Element<
+    typeof Division
+  > => (
     <Division
       key={divisionName}
       name={divisionName}

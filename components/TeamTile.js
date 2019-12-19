@@ -2,7 +2,6 @@
 import type { Team } from "../types/CommonTypes";
 
 import React, { type Node } from "react";
-import Head from "next/head";
 import Teams from "../lib/Teams";
 
 import "../css/teams.css";
@@ -13,7 +12,7 @@ type Props = {
 
 function TeamTile(props: Props): Node {
   const {
-    team: { teamName, id },
+    team: { id },
   } = props;
 
   return (
