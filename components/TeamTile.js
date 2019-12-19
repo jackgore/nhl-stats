@@ -8,12 +8,12 @@ import Teams from "../lib/Teams";
 import "../css/teams.css";
 
 type Props = {
-  team: Team
+  team: Team,
 };
 
 function TeamTile(props: Props): Node {
   const {
-    team: { teamName, id }
+    team: { teamName, id },
   } = props;
 
   return (
