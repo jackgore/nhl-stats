@@ -2,6 +2,11 @@
   font-family: sans-serif;
 }
 
+.sd-nav-bar-item {
+  cursor: pointer;
+  margin: 0 8px;
+}
+
 .sd-nav-bar {
   display: flex;
   height: 32px;

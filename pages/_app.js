@@ -5,12 +5,11 @@ import React from "react";
 import Layout from "../components/Layout";
 
 export default class MyApp extends App {
-  static async getInitialProps(props) {
-    const { Component } = props;
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps();
+      pageProps = await Component.getInitialProps(ctx);
     }
 
     return { pageProps };

@@ -1,14 +1,33 @@
 // @flow
+import type { Team } from "../../types/CommonTypes";
 
-import { useRouter } from "next/router";
-import React, { type Node } from "react";
+import React from "react";
 import TeamDisplay from "../../components/teams/TeamDisplay";
+import Constants from "../../lib/Constants";
+import Teams from "../../lib/Teams";
 
-function TeamPage(): Node {
-  const router = useRouter();
+const { TEAM_NAME_TO_ID_MAP } = Constants;
 
-  const teamName = router.query.teamName;
-  return <TeamDisplay teamName={teamName} />;
+type Props = {| team: Team |};
+
+class TeamPage extends React.Component<Props> {
+  static async getInitialProps(ctx: { query: { teamName: string } }) {
+    const {
+      query: { teamName },
+    } = ctx;
+
+    const id = TEAM_NAME_TO_ID_MAP[teamName];
+    const team = await Teams.fetchTeamInformation(id);
+    return {
+      team,
+    };
+  }
+
+  render() {
+    const { team } = this.props;
+
+    return <TeamDisplay team={team} />;
+  }
 }
 
 export default TeamPage;

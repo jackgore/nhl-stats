@@ -16,7 +16,8 @@ function Layout(props: Props): Node {
   return (
     <>
       <SDNav>
-        <SDNavItem label="Teams" />
+        <SDNavItem label="Home" link="/" />
+        <SDNavItem label="Teams" link="/teams" />
       </SDNav>
       <div>{children}</div>
     </>
