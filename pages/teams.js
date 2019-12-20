@@ -1,35 +1,33 @@
 // @flow
 import type { Team } from "../types/CommonTypes";
 
-import React, { useEffect, useState, type Node, type Element } from "react";
+import React, { type Node } from "react";
 import Teams from "../lib/Teams";
 import Division from "../components/Division";
 
 import "../css/teams.css";
 
-function Index(): Node {
-  const [teams, setTeams] = useState<Array<Team>>([]);
+type Props = {| teams: Array<Team> |};
 
-  useEffect(() => {
-    async function initialSetup() {
-      if (teams.length === 0) {
-        const teams = await Teams.fetchTeamsInformation();
-        setTeams(teams);
-      }
-    }
-    initialSetup();
-  });
+class TeamsPage extends React.Component<Props> {
+  static async getInitialProps() {
+    const teams = await Teams.fetchTeamsInformation();
+    return { teams };
+  }
 
-  const divisionToTeamsMap = Teams.buildDivisionToTeamsMap(teams);
-  return Object.keys(divisionToTeamsMap).map((divisionName: string): Element<
-    typeof Division
-  > => (
-    <Division
-      key={divisionName}
-      name={divisionName}
-      teams={divisionToTeamsMap[divisionName]}
-    />
-  ));
+  render(): Node {
+    const { teams } = this.props;
+
+    const divisionToTeamsMap = Teams.buildDivisionToTeamsMap(teams);
+    const divisions: Array<string> = Object.keys(divisionToTeamsMap);
+    return divisions.map(divisionName => (
+      <Division
+        key={divisionName}
+        name={divisionName}
+        teams={divisionToTeamsMap[divisionName]}
+      />
+    ));
+  }
 }
 
-export default Index;
+export default TeamsPage;
